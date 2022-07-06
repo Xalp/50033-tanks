@@ -20,8 +20,12 @@ public class TankHealth : MonoBehaviour
     {
         m_ExplosionParticles = Instantiate(m_ExplosionPrefab).GetComponent<ParticleSystem>();
         m_ExplosionAudio = m_ExplosionParticles.GetComponent<AudioSource>();
-
         m_ExplosionParticles.gameObject.SetActive(false);
+    }
+
+
+    private void Update(){
+        if(m_CurrentHealth<100f) TakeDamage(-0.01f);
     }
 
 
